@@ -1,0 +1,20 @@
+<div class="container">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th><a href="#" (click)="sortNo('empId')">ID</a></th>
+        <th><a href="#" (click)="sortString('empName')">Name</a></th>
+        <th><a href="#" (click)="sortNo('empSal')">Salary</a></th>
+        <th><a href="#" (click)="sortString('empDep')">Department</a></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of employees">
+        <td>{{emp.empId}}</td>
+        <td>{{emp.empName}}</td>
+        <td>{{emp.empSal}}</td>
+        <td>{{emp.empDep}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
