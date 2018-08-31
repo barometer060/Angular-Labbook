@@ -78,15 +78,22 @@ export class HomeComponent implements OnInit {
 
   sortNo(prop: string): void {
     this.employees.sort((a: IEmployee, b: IEmployee) => {
-      return b[prop] - a[prop];
+      return a[prop] - b[prop];
     });
   }
 
   sortString(prop: string): void {
     this.employees.sort((a: IEmployee, b: IEmployee) => {
-      if (a[prop] > b[prop]) return 1;
-      else if (a[prop] < b[prop]) return -1;
-      else return 0;
+      let A: IEmployee = a;
+      if (prop === "empName") {
+        if (a.empName.toLowerCase() > b.empName.toLowerCase()) return 1;
+        else if (a.empName.toLowerCase() < b.empName.toLowerCase()) return -1;
+        else return 0;
+      } else {
+        if (a[prop] > b[prop]) return 1;
+        else if (a[prop] < b[prop]) return -1;
+        else return 0;
+      }
     });
   }
 }
