@@ -1,3 +1,26 @@
-<p>
-  home works!
-</p>
+<div class="container">
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>Book ID</th>
+				<th>Book Title</th>
+				<th>Book Author</th>
+				<th>Year of Publish</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><input type="text" class="form-control" placeholder="ID"></td>
+				<td><input type="text" class="form-control" placeholder="Title" [(ngModel)]="titleFilter"></td>
+				<td><input type="text" class="form-control" placeholder="Year"></td>
+				<td><input type="text" class="form-control" placeholder="Author"></td>
+			</tr>
+			<tr *ngFor="let book of booklist | bookFilter : titleFilter">
+				<td>{{book.id}}</td>
+				<td>{{book.title}}</td>
+				<td>{{book.year}}</td>
+				<td>{{book.author}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

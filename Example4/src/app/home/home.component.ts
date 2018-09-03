@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {BooklistService} from '../booklist.service';
+import {IBook} from './IBook';
+import {BookFilterPipe} from './book-filter.pipe';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+	booklist: IBook[] = [];
+	titleFilter: string = '';
+  constructor(private ser: BooklistService) { }
 
   ngOnInit() {
+  	this.ser.getData().subscribe(data => {
+  		this.booklist = data;
+  	})
   }
 
 }
