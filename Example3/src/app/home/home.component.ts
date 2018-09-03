@@ -9,6 +9,8 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 export class HomeComponent implements OnInit {
   addProduct: FormGroup;
   availableOptions: String[] = ["Big Bazar", "DMart", "Reliance", "Mega Store"];
+  submittedAns = {};
+  available: String[] = [];
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
@@ -25,19 +27,37 @@ export class HomeComponent implements OnInit {
   printData(e): void {
     e.preventDefault();
     if (this.addProduct.valid) {
-      console.log("Submitted");
+      this.submittedAns = {
+        prodId: this.addProduct.get("prodId").value,
+        prodName: this.addProduct.get("prodName").value,
+        prodCost: this.addProduct.get("prodCost").value,
+        online: this.addProduct.get("online").value,
+        prodCat: this.addProduct.get("prodCat").value,
+        available: this.available
+      };
+      console.log(this.submittedAns);
+      this.available = [];
+      this.addProduct.reset();
     } else {
       console.log("Required fields are missing");
     }
   }
 
   getChecked(e) {
-    if (e.target.checked) {
+    if (e.target.type === "select-one") {
       console.log(e.target.value);
+    } else {
+      if (e.target.checked) {
+        if (
+          e.target.type === "checkbox" &&
+          this.available.indexOf(e.target.value) === -1
+        ) {
+          this.available.push(e.target.value);
+        }
+      } else {
+        let index = this.available.indexOf(e.target.value);
+        this.available.splice(index,1);
+      }
     }
-  }
-
-  getSelected(e) {
-    console.log(e.target.value);
   }
 }
