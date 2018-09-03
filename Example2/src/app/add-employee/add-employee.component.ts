@@ -31,6 +31,7 @@ export class AddEmployeeComponent implements OnInit {
       salary: this.addForm.get("salary").value,
       department: this.addForm.get("department").value
     };
+    this.addForm.reset();
     this.employees.push(employee);
   }
 
