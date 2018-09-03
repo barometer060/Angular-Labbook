@@ -1,0 +1,78 @@
+<div class="container">
+  <div class="card mx-auto" style="width: 450px">
+    <div class="card-header text-center">
+      <h2>Product Details</h2>
+    </div>
+    <div class="card-body">
+      <form class="form" [formGroup]="addProduct" (submit)="printData($event)" >
+
+        <div class="form-group">
+          <label>Product ID</label>
+          <input type="text" class="form-control" formControlName="prodId">
+        </div>
+
+        <div class="form-group">
+          <label>Product Name</label>
+          <input type="text" class="form-control" formControlName="prodName">
+        </div>
+
+        <div class="form-group">
+          <label>Product Cost</label>
+          <input type="text" class="form-control" formControlName="prodCost">
+        </div>
+
+        <div class="form-group">
+          <label>Product Online</label>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" formControlName="online" value="yes">Yes
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" formControlName="online" value="no">No
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Product Category</label>
+          <select class="form-control">
+            <option hidden selected></option>
+            <option value="grocery">Grocery</option>
+            <option value="mobile">Mobile</option>
+            <option value="electronics">Electronics</option>
+            <option value="cloth">Cloth</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Available in Store</label><br>
+          <div class="form-check-inline">
+            <label class="form-check-label">
+              <input type="checkbox" class="form-check-input" value="bb">Big Bazar
+            </label>
+          </div>
+          <div class="form-check-inline">
+            <label class="form-check-label">
+              <input type="checkbox" class="form-check-input" value="dmart">DMart
+            </label>
+          </div>
+          <div class="form-check-inline disabled">
+            <label class="form-check-label">
+              <input type="checkbox" class="form-check-input" value="reliance">Reliance
+            </label>
+          </div>
+          <div class="form-check-inline disabled">
+            <label class="form-check-label">
+              <input type="checkbox" class="form-check-input" value="mega">Mega Store
+            </label>
+          </div>
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Add Product">
+
+      </form>
+    </div>
+  </div>
+</div>
