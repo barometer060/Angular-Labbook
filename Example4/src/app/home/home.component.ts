@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
 	titleFilter: string = '';
 	authorFilter: string = '';
 	yearFilter: number;
+  idFilter: number;
   constructor(private ser: BooklistService) { }
 
   ngOnInit() {

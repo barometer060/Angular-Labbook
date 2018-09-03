@@ -10,12 +10,12 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><input type="text" class="form-control" placeholder="ID" ></td>
+				<td><input type="text" class="form-control" placeholder="ID" [(ngModel)]="idFilter"></td>
 				<td><input type="text" class="form-control" placeholder="Title" [(ngModel)]="titleFilter"></td>
 				<td><input type="text" class="form-control" placeholder="Year" [(ngModel)]="yearFilter"></td>
 				<td><input type="text" class="form-control" placeholder="Author" [(ngModel)]="authorFilter"></td>
 			</tr>
-			<tr *ngFor="let book of booklist | bookFilter : titleFilter : authorFilter">
+			<tr *ngFor="let book of booklist | bookFilter : titleFilter : authorFilter : yearFilter : idFilter">
 				<td>{{book.id}}</td>
 				<td>{{book.title}}</td>
 				<td>{{book.year}}</td>
